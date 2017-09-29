@@ -1,0 +1,11 @@
+@charset "UTF-8";
+//	全局颜色只给一个基色值  hover颜色 使用
+//	lighten		通过改变颜色的亮度值，让颜色变亮
+//	darken		通过改变颜色的亮度值，让颜色变暗
+//	saturate	通过改变颜色的饱和度值，让颜色更饱和
+//  desaturate	通过改变颜色的饱和度值，让颜色更少的饱和
+//  使用方法    darken(#dff0d8,5%); 把#dff0d8颜色亮度降低5%
+//	默认全部的hover颜色就是使用darken函数降低亮度5%
+
+
+$global-base-color: #4c8bff !default;

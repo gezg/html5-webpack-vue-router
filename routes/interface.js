@@ -41,7 +41,7 @@ router.get('/getMap.action', function(req, res, next) {
 /* test GET*/
 router.get('/getList.action', function(req, res, next) {
     var reslut = [];
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 30; i++) {
         var name = Mock.Random.cname();
         // 使用 Mock
         var data = Mock.mock({
@@ -56,6 +56,39 @@ router.get('/getList.action', function(req, res, next) {
     }
     res.send(JSON.stringify(reslut))
 });
+
+
+router.get('/getInfoAll.action', function(req, res, next) {
+    var reslut = { body: { column4RtxList: [{ id: 2, name: "信息动态" }, { id: 3, name: "ccc" }], info4RtxList:[{ id: 16, title: "0000000000000000000000", createDate: 1504850765000, picUrl: "172.16.3.77:7120/goa/upload/attach/201709/9a651baa-996a-44d2-8aa9-864776d890f5.jpg?login-at=true", infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 15, title: "3333333333333333333333", createDate: 1504850724000, picUrl: "172.16.3.77:7120/goa/upload/attach/201709/769ddf41-837c-4737-815e-db948d9c031a.jpg?login-at=true", infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 11, title: "3333", createDate: 1496382132000, picUrl: null, infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 9, title: "11111", createDate: 1496381841000, picUrl: null, infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 8, title: "fghfgh", createDate: 1496380513000, picUrl: null, infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 7, title: "dfg", createDate: 1496380379000, picUrl: null, infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 4, title: "asdf", createDate: 1496277246000, picUrl: null, infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }], info4RtxPicList:[{ id: 16, title: "0000000000000000000000", createDate: 1504850765000, picUrl: "172.16.3.77:7120/goa/upload/attach/201709/9a651baa-996a-44d2-8aa9-864776d890f5.jpg?login-at=true", infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }, { id: 15, title: "3333333333333333333333", createDate: 1504850724000, picUrl: "172.16.3.77:7120/goa/upload/attach/201709/769ddf41-837c-4737-815e-db948d9c031a.jpg?login-at=true", infoContent: null, author: null, author_unit: null, sendTime: null, definitionId_: null, business_Key_: null, curNodeId_: null, taskId_: null, instanceId_: null, openType_: null, nodeInfo: null }] },errormsg: "", code:"000000" }
+    res.send(JSON.stringify(reslut))
+});
+
+router.get('/getInfoById.action', function(req, res, next) {
+    var reslut = {
+        code: '000000',
+        body: {
+            id: 11,
+            title: "3333",
+            createDate: 1496382132000,
+            
+            definitionId_: null,
+            business_Key_: null,
+            curNodeId_: null,
+            taskId_: null,
+            instanceId_: null,
+            openType_: null,
+            infoContent: '<p>Mock</p>',//信息内容
+            picUrl: ''//图片网络路径
+        },
+        errormsg: ''
+    }
+
+    if(req.query.id){
+        reslut.body.id = req.query.id;
+    }
+    res.send(JSON.stringify(reslut))
+});
+
 
 /* test POST */
 router.post('/save.action', function(req, res) {
